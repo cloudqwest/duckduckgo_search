@@ -168,6 +168,7 @@ class AsyncDDGS(metaclass=GoogleDocstringInheritanceMeta):
                             "title": _normalize(row["t"]),
                             "href": _normalize_url(href),
                             "body": body,
+                            "date": row.get("e", None)
                         }
                         if max_results and len(cache) >= max_results:
                             return
