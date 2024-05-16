@@ -267,6 +267,7 @@ class DDGS:
                             "title": _normalize(row["t"]),
                             "href": _normalize_url(href),
                             "body": body,
+                            "date": row.get('e')
                         }
                         page_results.append(result)
             return page_results
@@ -1054,3 +1055,8 @@ class DDGS:
             raise e
 
         return results
+
+if __name__ == "__main__":
+    ddgs = DDGS()
+    search_term = "disruptions affecting ports"
+    out = ddgs.text(keywords=search_term,region="wt-wt",safesearch="on",timelimit="d",)
